@@ -1,0 +1,22 @@
+<div *ngIf="isOpen" class="flex flex-col">
+  <span class="text-2xl">Favorites: </span>
+  <ul *ngFor="let recipe of favoritesRecipes">
+    <div class="flex flex-row gap-4 bg-gray-500  max-w-[40%] justify-between p-2">
+      <li class="text-xl">{{ recipe.name }}</li>
+      <button
+        class="border-2 border-black cursor-pointer hover:text-black px-1"
+        (click)="removeFromFavorites(recipe)"
+      >
+        X
+      </button>
+    </div>
+  </ul>
+</div>
+
+<div *ngIf="!isOpen" class="mt-8">
+  <span
+    class="p-2 border border-black bg-orange-500 cursor-pointer"
+    (click)="seeFavorites()"
+    >See Favorites</span
+  >
+</div>
