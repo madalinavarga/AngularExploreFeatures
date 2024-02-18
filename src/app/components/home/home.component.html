@@ -1,11 +1,20 @@
 <div class="">
+  <!-- <input #input /> -->
+  <div *ngIf="true; else loading"></div>
   <app-search (searchedText)="receiveInput($event)"></app-search>
   <div class="flex flex-row gap-4 flex-wrap">
     <div
       *ngFor="let recipe of filteredRecipes; trackBy: implementTrackFn"
       class="border border-black rounded px-2 py-3 min-w-[20%] bg-gray-800"
     >
-      <app-card [recipe]="recipe" (setFavorite)="updateRecipe(recipe)"></app-card>
+      <app-card
+        [recipe]="recipe"
+        (setFavorite)="updateRecipe(recipe)"
+      ></app-card>
     </div>
   </div>
 </div>
+
+<ng-template #loading>
+  <app-spinner></app-spinner>
+</ng-template>
